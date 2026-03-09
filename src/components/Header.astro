@@ -1,10 +1,12 @@
 ---
 import { siteConfig } from "../config";
 
+const hasHighlights = siteConfig.highlights && siteConfig.highlights.length > 0;
 const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
 const hasExperience = siteConfig.experience && siteConfig.experience.length > 0;
 const hasEducation = siteConfig.education && siteConfig.education.length > 0;
-const hasCertifications = siteConfig.certifications && siteConfig.certification.length > 0;
+const hasCertifications = siteConfig.certifications && siteConfig.certifications.length > 0;
+const hasTechnologies = siteConfig.technologies && siteConfig.technologies.length > 0;
 ---
 
 <header
@@ -21,6 +23,18 @@ const hasCertifications = siteConfig.certifications && siteConfig.certification.
           About
         </a>
       </li>
+      {
+        hasHighlights && (
+          <li>
+            <a
+              href="#highlights"
+              class="text-gray-400 hover:text-white transition-colors font-medium"
+            >
+              Highlights
+            </a>
+          </li>
+        )
+      }
       {
         hasExperience && (
           <li>
@@ -69,6 +83,18 @@ const hasCertifications = siteConfig.certifications && siteConfig.certification.
           </li>
         )
       }
+      {
+        hasTechnologies && (
+          <li>
+            <a
+              href="#technologies"
+              class="text-gray-400 hover:text-white transition-colors font-medium"
+            >
+              Technologies
+            </a>
+          </li>
+        )
+      }
     </ul>
   </nav>
 </header>
@@ -77,9 +103,9 @@ const hasCertifications = siteConfig.certifications && siteConfig.certification.
   window.addEventListener("scroll", () => {
     const header = document.getElementById("header");
     if (window.scrollY > 100) {
-      header?.classList.add("bg-white/80", "backdrop-blur-sm");
+      header?.classList.add("bg-black/80", "backdrop-blur-sm");
     } else {
-      header?.classList.remove("bg-white/80", "backdrop-blur-sm");
+      header?.classList.remove("bg-black/80", "backdrop-blur-sm");
     }
   });
 </script>
