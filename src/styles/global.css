@@ -62,3 +62,13 @@ body {
     opacity: 1;
   }
 }
+
+/* Language toggle */
+[data-lang="es"] { display: none; }
+html.lang-es [data-lang="en"] { display: none; }
+html.lang-es [data-lang="es"] { display: inline; }
+
+#lang-toggle-en { color: rgb(255 255 255 / 0.75); }
+#lang-toggle-es { color: rgb(255 255 255 / 0.25); }
+html.lang-es #lang-toggle-en { color: rgb(255 255 255 / 0.25); }
+html.lang-es #lang-toggle-es { color: rgb(255 255 255 / 0.75); }

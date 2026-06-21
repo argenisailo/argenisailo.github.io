@@ -18,41 +18,47 @@ const hasTechnologies = siteConfig.technologies && siteConfig.technologies.lengt
     <ul class="flex items-center gap-8 justify-center">
       <li>
         <a href="#about" class="font-mono text-xs uppercase tracking-widest text-white/40 hover:text-white transition-colors duration-200">
-          About
+          <span data-lang="en">About</span>
+          <span data-lang="es">Sobre mí</span>
         </a>
       </li>
       {hasApproach && (
         <li>
           <a href="#approach" class="font-mono text-xs uppercase tracking-widest text-white/40 hover:text-white transition-colors duration-200">
-            Approach
+            <span data-lang="en">Approach</span>
+            <span data-lang="es">Enfoque</span>
           </a>
         </li>
       )}
       {hasHighlights && (
         <li>
           <a href="#highlights" class="font-mono text-xs uppercase tracking-widest text-white/40 hover:text-white transition-colors duration-200">
-            Highlights
+            <span data-lang="en">Highlights</span>
+            <span data-lang="es">Logros</span>
           </a>
         </li>
       )}
       {hasExperience && (
         <li>
           <a href="#experience" class="font-mono text-xs uppercase tracking-widest text-white/40 hover:text-white transition-colors duration-200">
-            Experience
+            <span data-lang="en">Experience</span>
+            <span data-lang="es">Experiencia</span>
           </a>
         </li>
       )}
       {hasProjects && (
         <li>
           <a href="#projects" class="font-mono text-xs uppercase tracking-widest text-white/40 hover:text-white transition-colors duration-200">
-            Projects
+            <span data-lang="en">Projects</span>
+            <span data-lang="es">Proyectos</span>
           </a>
         </li>
       )}
       {hasEducation && (
         <li>
           <a href="#education" class="font-mono text-xs uppercase tracking-widest text-white/40 hover:text-white transition-colors duration-200">
-            Education
+            <span data-lang="en">Education</span>
+            <span data-lang="es">Formación</span>
           </a>
         </li>
       )}
@@ -70,6 +76,17 @@ const hasTechnologies = siteConfig.technologies && siteConfig.technologies.lengt
           </a>
         </li>
       )}
+      <li>
+        <button
+          id="lang-toggle"
+          class="font-mono text-xs uppercase tracking-widest transition-colors duration-200 flex items-center gap-1 cursor-pointer"
+          aria-label="Toggle language"
+        >
+          <span id="lang-toggle-en">EN</span>
+          <span style="color: rgb(255 255 255 / 0.15)">/</span>
+          <span id="lang-toggle-es">ES</span>
+        </button>
+      </li>
     </ul>
   </nav>
 </header>
@@ -85,5 +102,10 @@ const hasTechnologies = siteConfig.technologies && siteConfig.technologies.lengt
       header.classList.remove("bg-hero");
       header.style.borderBottom = "";
     }
+  });
+
+  document.getElementById("lang-toggle")?.addEventListener("click", () => {
+    const isEs = document.documentElement.classList.toggle("lang-es");
+    try { localStorage.setItem("lang", isEs ? "es" : "en"); } catch(e) {}
   });
 </script>
